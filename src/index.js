@@ -1,23 +1,23 @@
+const conf = require('./conf.json');
 const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
-const io = require("socket.io")(httpServer, {
+const io = require("socket.io")(server, {
   cors: {
     origin: "*",
   }
 });
 
 app.get('/', (req, res) => {
-  res.redirect(process.env.CLIENT_URL);
+  res.redirect(conf.CLIENT_URL);
 });
 
-server.listen(process.env.SELF_PORT, () => {
-  console.log('listening on *:' + process.env.SELF_PORT);
+server.listen(conf.SELF_PORT, () => {
+  console.log('listening on *:' + conf.SELF_PORT);
 });
 
 io.on('connection', (socket) => {
-  console.log('Client connected');
-
   socket.emit('roomID', '0');
+  console.log('Emitted roomID');
 });
