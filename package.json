@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/aklagoo/copyist-backend/issues"
   },
-  "homepage": "https://github.com/aklagoo/copyist-backend#readme"
+  "homepage": "https://github.com/aklagoo/copyist-backend#readme",
+  "dependencies": {
+    "socket.io": "^4.1.3"
+  }
 }
