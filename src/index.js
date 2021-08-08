@@ -18,6 +18,6 @@ server.listen(conf.SELF_PORT, () => {
 });
 
 io.on('connection', (socket) => {
+  console.log('Received roomID: ' + socket.handshake.query.roomID);
   socket.emit('roomID', '0');
-  console.log('Emitted roomID');
 });
