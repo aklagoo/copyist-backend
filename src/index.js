@@ -8,6 +8,7 @@ const io = require("socket.io")(server, {
     origin: "*",
   }
 });
+const Model = require('../model').Model;
 
 app.get('/', (req, res) => {
   res.redirect(conf.CLIENT_URL);
@@ -21,3 +22,5 @@ io.on('connection', (socket) => {
   console.log('Received roomID: ' + socket.handshake.query.roomID);
   socket.emit('roomID', '0');
 });
+
+let model = new Model();
