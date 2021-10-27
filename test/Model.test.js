@@ -27,16 +27,26 @@ describe('Model', () => {
   describe("#read()", () => {
     it('should return the correct value if the key exists.', (done) => {
       model.read("test_read").then((value) => {
-        console.log(value);
         expect(value).to.equal("Hello world!");
         done();
       });
     });
     it('should return null if the key does not exist.', (done) => {
       model.read("test_read_invalid").then((value) => {
-        console.log(value);
         expect(value).to.be.null;
         done();
+      });
+    });
+  });
+
+  describe("#write()", () => {
+    it('should write the correct value if the key exists.', (done) => {
+      let date = Date.now().toString();
+      model.write("test_write", date).then(() => {
+        model.read("test_write").then((value_read) => {
+          expect(value_read).to.equal(date);
+          done();
+        });
       });
     });
   });
