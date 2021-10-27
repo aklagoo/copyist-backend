@@ -28,6 +28,7 @@ describe('Model', () => {
     it('should return the correct value if the key exists.', (done) => {
       model.read("test_read").then((value) => {
         expect(value).to.equal("Hello world!");
+        done();
       });
     });
   });
