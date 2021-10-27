@@ -24,7 +24,7 @@ class Model {
   }
 
   write(roomID, message) {
-    return;
+    return this.ref.child(roomID).set(message);
   }
 }
 
