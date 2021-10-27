@@ -18,7 +18,9 @@ class Model {
   }
 
   read(roomID) {
-    return;
+    return this.ref.child(roomID).once('value').then((snapshot) => {
+      return snapshot.val();
+    });
   }
 
   write(roomID, message) {
