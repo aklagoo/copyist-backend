@@ -12,7 +12,7 @@ class Model {
   }
 
   async exists(roomID) {
-    return this.ref.child(roomID).once('value').then((snapshot) => {
+    return await this.ref.child(roomID).once('value').then((snapshot) => {
       return snapshot.exists();
     });
   }
