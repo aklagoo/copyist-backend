@@ -11,11 +11,10 @@ class Model {
     this.ref = admin.database().ref('rooms');
   }
 
-  exists(roomID) {
-    let exists = this.ref.child(roomID).once('value').then((snapshot) => {
+  async exists(roomID) {
+    return this.ref.child(roomID).once('value').then((snapshot) => {
       return snapshot.exists();
     });
-    return exists;
   }
 
   read(roomID) {
