@@ -1,5 +1,5 @@
 const admin = require('firebase-admin');
-const serviceAccount = require('./src/auth/key.json');
+const serviceAccount = require('./auth/key.json');
 
 class Model {
   constructor() {
@@ -9,6 +9,18 @@ class Model {
     });
 
     this.ref = admin.database().ref('rooms');
+  }
+
+  exists(roomID) {
+    return;
+  }
+
+  read(roomID) {
+    return;
+  }
+
+  write(roomID, message) {
+    return;
   }
 }
 
