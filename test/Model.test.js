@@ -1,9 +1,5 @@
-const chai = require('chai');
-const { assert } = require('jsverify');
+const { expect } = require('chai');
 const { Model } = require('../src/model.js');
-/*const chaiAsPromised = require('chai-as-promised');
-chai.use(chaiAsPromised);*/
-const expect = chai.expect;
 
 let model;
 describe('Model', () => {
