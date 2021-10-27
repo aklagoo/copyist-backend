@@ -17,7 +17,7 @@ describe('Model', () => {
     });
     it('should return false if key does not exist', (done) => {
       // TODO Fix test return check
-      model.exists("test_does_not_exist").then((value) => {
+      model.exists("test_exists_invalid").then((value) => {
         expect(value).to.be.false;
         done();
       });
@@ -29,6 +29,13 @@ describe('Model', () => {
       model.read("test_read").then((value) => {
         console.log(value);
         expect(value).to.equal("Hello world!");
+        done();
+      });
+    });
+    it('should return null if the key does not exist.', (done) => {
+      model.read("test_read_invalid").then((value) => {
+        console.log(value);
+        expect(value).to.be.null;
         done();
       });
     });
