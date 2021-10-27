@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "test": "mocha -w --exit"
+    "test": "mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
   "devDependencies": {
     "@sinonjs/referee-sinon": "^10.1.0",
     "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
     "jsverify": "^0.8.4",
     "knuth-shuffle": "^1.0.8",
     "sinon": "^11.1.2",

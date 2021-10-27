@@ -12,7 +12,10 @@ class Model {
   }
 
   exists(roomID) {
-    return;
+    let exists = this.ref.child(roomID).once('value').then((snapshot) => {
+      return snapshot.exists();
+    });
+    return exists;
   }
 
   read(roomID) {
