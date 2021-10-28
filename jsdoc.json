@@ -1,0 +1,21 @@
+{
+    "source": {
+      "include": ["src"],
+      "includePattern": ".js$",
+      "excludePattern": "(node_modules/|docs)"
+    },
+    "plugins": ["plugins/markdown"],
+    "templates": {
+      "cleverLinks": true,
+      "monospaceLinks": true,
+      "systemName"            : "Copyist Backend",
+      "theme"                 : "simplex",
+      "linenums"              : true,
+      "search"                : true 
+    },
+    "opts": {
+      "recurse": true,
+      "destination": "./docs/",
+      "template": "./node_modules/ink-docstrap/template"
+    }
+  }
