@@ -26,7 +26,15 @@ class Controller {
     });
   }
   update(roomID, message) {
-    return;
+    /* Check if roomID exists. If yes, update message. */
+    return this.model.exists(roomID).then(async (exists) => {
+      if(exists) {
+        return this.model.write(roomID, message);
+      }
+      else {
+        return Promise.reject(new Error("Invalid Room ID."));
+      }
+    })
   }
 }
 
