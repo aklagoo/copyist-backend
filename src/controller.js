@@ -10,7 +10,7 @@ class Controller {
   constructor() {
     /**
      * A {@link Model model} instance for database operations
-     * @type {Reference}
+     * @type {Model}
     */
     this.model = new Model();
   }
