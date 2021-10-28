@@ -8,7 +8,7 @@ const connectRoomIDValid = 'test_connectRoomIDValid';
 const connectMessageValid = 'test_connectMessage';
 const connectRoomIDInvalid = 'test_connectUUIDInvalid';
 const updateRoomIDValid = 'test_updateRoomIDValid';
-const updateRoomIDInvalid = 'test_updateRoomIDValid';
+const updateRoomIDInvalid = 'test_updateRoomIDInvalid';
 
 let controller;
 let model;
@@ -48,13 +48,16 @@ describe('Controller', () => {
   });
 
   describe('#update', () => {
-    it('should update the message if the roomID is valid.', (done) => {
+    it('should correctly update the message if the roomID is valid.', (done) => {
       const message = Date.now().toString();
       controller.update(updateRoomIDValid, message).then(async () => {
         const readMessage = await model.read(updateRoomIDValid);
         expect(readMessage).to.equal(message);
         done();
       });
+    });
+    it('should reject with an error if roomID is invalid.', (done) => {
+      controller.update(updateRoomIDInvalid, '').catch((err) => {done();});
     });
   });
 });
