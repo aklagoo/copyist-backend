@@ -8,9 +8,9 @@ describe('Model', () => {
   });
 
   describe("#exists()", () => {
-    it('should return true if key exists', (done) => {
+    it('should return true if key exists', () => {
       // TODO Fix test return check
-      model.exists("test_exists").then((value) => {
+      model.exists("test_exists_invalid").then((value) => {
         expect(value).to.be.true;
         done();
       });
