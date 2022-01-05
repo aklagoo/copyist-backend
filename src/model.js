@@ -28,6 +28,9 @@ class Model {
    * @returns {boolean}
    */
   async exists(roomID) {
+    if(roomID == '') {
+      return false;
+    }
     return await this.ref.child(roomID).once('value').then((snapshot) => {
       return snapshot.exists();
     });

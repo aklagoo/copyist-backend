@@ -51,6 +51,7 @@ io.on('connection', (socket) => {
   socket.on('update', (message) => {
     // Attempt an update.
     controller.update(roomID, message).then(() => {
+      console.log(message);
       // If successful, broadcast the update to the room.
       socket.to(roomID).emit('update', message);
     }).catch((err) => {
