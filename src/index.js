@@ -1,5 +1,4 @@
-/* Imports */
-const conf = require('./conf.json');
+if(process.env.NODE_ENV !== 'production') require('dotenv').config('../.env');
 const { Controller } = require('./controller');
 const express = require('express');
 const http = require('http');
@@ -17,12 +16,12 @@ const controller = new Controller();
 
 /* Redirect user to client URL. */
 app.get('/', (req, res) => {
-  res.redirect(conf.CLIENT_URL);
+  res.redirect(process.env.CLIENT_URL);
 });
 
 /* Listener */
-server.listen(conf.SELF_PORT, () => {
-  console.log('listening on *:' + conf.SELF_PORT);
+server.listen(process.env.SELF_PORT, () => {
+  console.log('listening on *:' + process.env.SELF_PORT);
 });
 
 /* Socket.io server setup */
